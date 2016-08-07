@@ -22,7 +22,7 @@ public class Month {
 	{
 		return new Month(month, year);
 	}
-	//File the 3D structure of the month with actual dates
+	//Fill the 3D structure of the month with actual dates
 	private Day[][] generateMonth(YearMonth ym)
 	{
 		Day[][] monthDays = new Day[6][8];
@@ -43,7 +43,7 @@ public class Month {
 				}
 				if(startCounter)
 				{
-					monthDays[i][j] = Day.createDay(++counter, j);
+					monthDays[i][j] = Day.createDay(++counter, j, month, year);
 				}
 			}
 		return monthDays;
