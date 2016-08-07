@@ -1,6 +1,6 @@
 package com.calendar;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.UUID;
 
 public class Appointment {
@@ -44,8 +44,6 @@ public class Appointment {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-
 
 	public void setTitle(String title) {
 		this.title = title;
