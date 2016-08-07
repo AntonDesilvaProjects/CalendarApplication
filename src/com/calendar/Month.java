@@ -26,8 +26,8 @@ public class Month {
 	private Day[][] generateMonth(YearMonth ym)
 	{
 		Day[][] monthDays = new Day[6][8];
-		int firstDay = ym.atDay(1).getDayOfWeek().getValue();
-		int lastDate = ym.atEndOfMonth().getDayOfMonth();
+		int firstDay = ym.atDay(1).getDayOfWeek().getValue();//1-Mon...7-Sunday
+		int lastDate = ym.atEndOfMonth().getDayOfMonth();//Returns 30, 31 or 29
 		int counter = 0;
 		boolean startCounter = false;
 		for(int i = 0; i < 6; i++)
@@ -43,7 +43,7 @@ public class Month {
 				}
 				if(startCounter)
 				{
-					monthDays[i][j] = Day.createDay(++counter);
+					monthDays[i][j] = Day.createDay(++counter, j);
 				}
 			}
 		return monthDays;
@@ -62,8 +62,7 @@ public class Month {
 					System.out.print( "\t");
 			}
 			System.out.println();
-		}
-			
+		}	
 	}
 	public String generateHTMLView()
 	{
