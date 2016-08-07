@@ -1,6 +1,7 @@
 package com.calendar;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Appointment {
 	
@@ -10,6 +11,7 @@ public class Appointment {
 	private String body;
 	private String location;
 	private boolean allDay;
+	private String id;
 	
 	public Appointment(Date start, Date end, String title, String body, String location, boolean allDay )
 	{
@@ -19,6 +21,7 @@ public class Appointment {
 		this.body = body;
 		this.location = location;
 		this.allDay = allDay;
+		this.id = UUID.randomUUID().toString();
 	}
 	public Date getStart() {
 		return start;
@@ -35,6 +38,13 @@ public class Appointment {
 	public String getTitle() {
 		return title;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+
 
 
 	public void setTitle(String title) {

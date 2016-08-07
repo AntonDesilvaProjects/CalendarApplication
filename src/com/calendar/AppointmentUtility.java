@@ -8,7 +8,7 @@ public class AppointmentUtility {
 	{
 		Appointment a = new Appointment(start, end, title, body, location, allDay);
 	}
-	public void deleteAppointment()
+	public void deleteAppointment(String ID)
 	{
 		
 	}
