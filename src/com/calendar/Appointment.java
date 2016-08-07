@@ -11,7 +11,6 @@ public class Appointment {
 	private String location;
 	private boolean allDay;
 	
-	
 	public Appointment(Date start, Date end, String title, String body, String location, boolean allDay )
 	{
 		this.start = start;
@@ -21,28 +20,18 @@ public class Appointment {
 		this.location = location;
 		this.allDay = allDay;
 	}
-
-
 	public Date getStart() {
 		return start;
 	}
-
-
 	public void setStart(Date start) {
 		this.start = start;
 	}
-
-
 	public Date getEnd() {
 		return end;
 	}
-
-
 	public void setEnd(Date end) {
 		this.end = end;
 	}
-
-
 	public String getTitle() {
 		return title;
 	}
