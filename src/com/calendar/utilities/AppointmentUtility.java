@@ -1,4 +1,4 @@
-package com.calendar;
+package com.calendar.utilities;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -6,10 +6,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.List;
 
+import com.calendar.Appointment;
+
 public class AppointmentUtility {
-	public static void createAppointment(Date start, Date end, String title, String body, String location, boolean allDay)
+	public static void createAppointment(Timestamp start, Timestamp end, String title, String body, String location, boolean allDay)
 	{
 		Appointment newAppointment = new Appointment(start, end, title, body, location, allDay);
 		//Send appointment to the database
@@ -20,8 +23,8 @@ public class AppointmentUtility {
 			String SQL = "INSERT INTO App (id, app_start, app_end, title, body, location, allDay) VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement pStatement = connection.prepareStatement(SQL);
 			pStatement.setString(1, newAppointment.getId());
-			pStatement.setDate(2, newAppointment.getStart());
-			pStatement.setDate(3, newAppointment.getEnd());
+			pStatement.setTimestamp(2, newAppointment.getStart());
+			pStatement.setTimestamp(3, newAppointment.getEnd());
 			pStatement.setString(4, newAppointment.getTitle());
 			pStatement.setString(5, newAppointment.getBody());
 			pStatement.setString(6, newAppointment.getLocation());

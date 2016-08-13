@@ -1,19 +1,20 @@
 package com.calendar;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 public class Appointment {
 	
-	private Date start;
-	private Date end;
+	private Timestamp start;
+	private Timestamp end;
 	private String title;
 	private String body;
 	private String location;
 	private boolean allDay;
 	private String id;
 	
-	public Appointment(Date start, Date end, String title, String body, String location, boolean allDay )
+	public Appointment(Timestamp start, Timestamp end, String title, String body, String location, boolean allDay )
 	{
 		this.start = start;
 		this.end = end;
@@ -23,16 +24,16 @@ public class Appointment {
 		this.allDay = allDay;
 		this.id = UUID.randomUUID().toString();
 	}
-	public Date getStart() {
+	public Timestamp getStart() {
 		return start;
 	}
-	public void setStart(Date start) {
+	public void setStart(Timestamp start) {
 		this.start = start;
 	}
-	public Date getEnd() {
+	public Timestamp getEnd() {
 		return end;
 	}
-	public void setEnd(Date end) {
+	public void setEnd(Timestamp end) {
 		this.end = end;
 	}
 	public String getTitle() {
