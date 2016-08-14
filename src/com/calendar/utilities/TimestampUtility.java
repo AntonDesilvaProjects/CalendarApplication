@@ -10,4 +10,10 @@ public class TimestampUtility {
 		Date date = new GregorianCalendar(year, month, day, hour, seconds ).getTime();
 		return new Timestamp( date.getTime() );
 	}
+	public static boolean compareYearMonthDay(Timestamp timestamp, Date date)
+	{
+		/*System.out.println(timestamp.getYear() + "/" + timestamp.getMonth() + "/" + timestamp.getDate());
+		System.out.println(date.getYear() + "/" + date.getMonth() + "/" + date.getDate());*/
+		return timestamp.getYear() == date.getYear() && timestamp.getMonth() == date.getMonth() && timestamp.getDate() == date.getDate();
+	}
 }

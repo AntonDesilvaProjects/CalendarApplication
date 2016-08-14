@@ -2,6 +2,7 @@ package com.calendar;
 
 import java.time.YearMonth;
 import java.util.Calendar;
+import java.util.List;
 
 public class Month {
 	
@@ -96,5 +97,9 @@ public class Month {
 			return "December";
 		else
 			return null;
+	}
+	public void allocateAppointments(List<Appointment> appointments)
+	{
+		
 	}
 }

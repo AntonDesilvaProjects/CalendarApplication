@@ -2,6 +2,7 @@ package com.calendar;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Day {
@@ -19,7 +20,7 @@ public class Day {
 		this.dayOfWeek = dayOfWeek;
 		this.month = month;
 		this.year = year;
-		dateObject = new Date(this.year, this.month, this.date);
+		dateObject = new GregorianCalendar(this.year, this.month, this.date).getTime();//new Date(this.year, this.month, this.date);
 		this.appointments = new ArrayList<Appointment>();
 		
 	}

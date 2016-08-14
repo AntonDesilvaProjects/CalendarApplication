@@ -27,13 +27,14 @@ public class Runner {
 		//Month.createMonth(3, 2018).printMonth();
 		//AppointmentUtility.createAppointment(start, end, "10 years", "Happy Birthday for 10 years", "NY,USA", false);
 		
-		Date date = new GregorianCalendar(2004, Calendar.FEBRUARY, 17).getTime();
-		
+		Date date = new GregorianCalendar(2014, Calendar.FEBRUARY, 27).getTime();
+		Date date2 = new Date(2008, Calendar.FEBRUARY, 17);
 		//System.out.println( start.getYear() == date.getYear() && start.getMonth() == date.getMonth() && start.getDate() == date.getDate());
 		
-		List<Appointment> list = AppointmentUtility.getAppointments(2, 2004);
+		/*List<Appointment> list = AppointmentUtility.getAppointments(2, 2004);
 		for(Appointment a : list )
-			System.out.println( a.getTitle());
+			System.out.println( a.getTitle());*/
+		System.out.println(TimestampUtility.compareYearMonthDay(end, date2));
 		
 	}
 }
