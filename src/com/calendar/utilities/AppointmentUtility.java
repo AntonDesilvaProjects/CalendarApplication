@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.calendar.Appointment;
@@ -47,8 +49,45 @@ public class AppointmentUtility {
 	{
 		
 	}
-	public List<Appointment> getAppointments(int month, int year)
+	public static List<Appointment> getAppointments(int month, int year)
 	{
-		return null;
+		List<Appointment> appointments = new ArrayList<Appointment>();
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cal_apps", "root", "desilva5");
+			String SQL = "SELECT * FROM App WHERE MONTH(app_start)= ? AND YEAR(app_start) = ?;";
+			PreparedStatement pStatement = connection.prepareStatement(SQL);
+			pStatement.setInt(1, month);
+			pStatement.setInt(2, year);
+			ResultSet results = pStatement.executeQuery();
+			Timestamp currentTS;
+			
+			while(results.next())
+			{
+				currentTS = results.getTimestamp(2);
+				//Get the appointment information
+				Appointment newAppointment;
+				String id = results.getString(1);
+				Timestamp end = results.getTimestamp(3);
+				String title = results.getString(4);
+				String body = results.getString(5);
+				String location = results.getString(6);
+				boolean allDay = results.getBoolean(7);
+				newAppointment = new Appointment(currentTS, end, title, body, location, allDay);
+				appointments.add(newAppointment);
+			}
+			
+		}
+		catch(ClassNotFoundException ex)
+		{
+			ex.printStackTrace();
+		}
+		catch(SQLException ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		return appointments;
 	}
 }
