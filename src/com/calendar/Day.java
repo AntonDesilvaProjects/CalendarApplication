@@ -36,4 +36,8 @@ public class Day {
 	{
 		this.appointments.add(appointment);
 	}
+	public List<Appointment> getAppointments()
+	{
+		return appointments;
+	}
 }

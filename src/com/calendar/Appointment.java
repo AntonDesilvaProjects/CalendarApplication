@@ -2,9 +2,10 @@ package com.calendar;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Comparator;
 import java.util.UUID;
 
-public class Appointment {
+public class Appointment implements Comparable<Appointment> {
 	
 	private Timestamp start;
 	private Timestamp end;
@@ -79,5 +80,9 @@ public class Appointment {
 	public void setAllDay(boolean allDay) {
 		this.allDay = allDay;
 	}
-
+	
+	@Override
+	public int compareTo(Appointment appointment) {
+		return this.start.compareTo(appointment.getStart());
+	}
 }

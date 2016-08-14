@@ -2,6 +2,7 @@ package com.calendar;
 
 import java.time.YearMonth;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 public class Month {
@@ -15,7 +16,7 @@ public class Month {
 	{
 		this.month = month;
 		this.year = year;
-		yearMonth = YearMonth.of(year, month);
+		yearMonth = YearMonth.of(year, month + 1); //YearMonth is from 1 - 12(not 0 based)
 		days = generateMonth(yearMonth);
 	}
 	//Create a new month object
@@ -58,7 +59,11 @@ public class Month {
 			for(int j = 1; j <= 7; j++)
 			{
 				if( days[i][j] != null)
+				{
+					if( !days[i][j].getAppointments().isEmpty())
+						System.out.print("*");
 					System.out.print( days[i][j].getDate() + "\t");
+				}
 				else
 					System.out.print( "\t");
 			}
@@ -71,35 +76,50 @@ public class Month {
 	}
 	public String getMonthName(int i)
 	{
-		if( i == 1)
+		if( i == 0)
 			return "January";
-		else if( i == 2)
+		else if( i == 1)
 			return "February";
-		else if( i == 3)
+		else if( i == 2)
 			return "March";
-		else if( i == 4)
+		else if( i == 3)
 			return "April";
-		else if( i == 5)
+		else if( i == 4)
 			return "May";
-		else if( i == 6)
+		else if( i == 5)
 			return "June";
-		else if( i == 7)
+		else if( i == 6)
 			return "July";
-		else if( i == 8)
+		else if( i == 7)
 			return "August";
-		else if( i == 9)
+		else if( i == 8)
 			return "September";
-		else if( i == 10)
+		else if( i == 9)
 			return "October";
-		else if( i == 11)
+		else if( i == 10)
 			return "November";
-		else if( i == 12)
+		else if( i == 11)
 			return "December";
 		else
 			return null;
 	}
 	public void allocateAppointments(List<Appointment> appointments)
 	{
-		
+		//Sort the appointments
+		Collections.sort(appointments);
+		int firstDay = yearMonth.atDay(1).getDayOfWeek().getValue();
+		//index of firstday is [0][firstDay];
+		for(Appointment currentAppointment : appointments )
+		{
+			int dayOfAppointment = currentAppointment.getStart().getDate();
+			int row = ( dayOfAppointment - 1 ) / 7;
+			int column = (dayOfAppointment - 1) % 7 + firstDay;
+			if( column > 7)
+			{
+				row += 1;
+				column -= 7;
+			}
+			days[row][column].addAppointment(currentAppointment);
+		}
 	}
 }
