@@ -72,6 +72,10 @@ public class Month {
 	}
 	public String generateHTMLView()
 	{
+		
+		//Generate the HTML representation of the month
+		
+		
 		return new String();
 	}
 	public String getMonthName(int i)
