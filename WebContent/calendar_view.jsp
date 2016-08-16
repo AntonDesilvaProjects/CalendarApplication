@@ -4,9 +4,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>August, 2016</title>
+	<link rel="stylesheet" type="text/css" href="/WebContent/stylesheets/calendar_style.css">
+	<title>{},{}</title>
 </head>
 <body>
+
+{calendarHTML}
 
 </body>
 </html>

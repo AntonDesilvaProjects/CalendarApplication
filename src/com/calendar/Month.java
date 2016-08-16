@@ -72,11 +72,36 @@ public class Month {
 	}
 	public String generateHTMLView()
 	{
-		
 		//Generate the HTML representation of the month
+		StringBuilder cal_html = new StringBuilder();
+		cal_html.append("<table border='1'>");
+		cal_html.append("<tr>");
+		cal_html.append("<th>Sunday</th>");
+		cal_html.append("<th>Monday</th>");
+		cal_html.append("<th>Tuesday</th>");
+		cal_html.append("<th>Wednesday</th>");
+		cal_html.append("<th>Thursday</th>");
+		cal_html.append("<th>Friday</th>");
+		cal_html.append("<th>Saturday</th>");
+		cal_html.append("</tr>");
 		
+		for(int i = 0; i < 6; i++)
+		{
+			cal_html.append("<tr>");
+			for(int j = 1; j <= 7; j++)
+			{
+				if( days[i][j] != null)
+				{
+					cal_html.append(" <td data-day='" + days[i][j].getDate() + "'>" + "</td>");
+				}
+				else
+					cal_html.append(" <td>" + "</td>");
+			}
+			cal_html.append("</tr>");
+		}
+		cal_html.append("</table>");
 		
-		return new String();
+		return cal_html.toString();
 	}
 	public String getMonthName(int i)
 	{

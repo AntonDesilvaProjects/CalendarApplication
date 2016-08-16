@@ -53,10 +53,9 @@ public class Runner {
 			System.out.println( a.getTitle());*/
 		
 		
-		Month m = Month.createMonth(Calendar.MARCH, 2014);
+		Month m = Month.createMonth(Calendar.AUGUST, 2016);
 		m.allocateAppointments(list);
 		m.printMonth();
-		
-		
+		String html = m.generateHTMLView();
 	}
 }
