@@ -8,8 +8,30 @@
 	<title>{},{}</title>
 </head>
 <body>
+<style>
+table {
+  table-layout: fixed;
+  width: 1250px;
+  height: 800px;
+}
 
-{calendarHTML}
+table td {
+  height: 125px;
+  position: relative;
+}
+
+table td:before {
+  content: attr(data-day);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: yellow;
+}
+
+</style>
+
+${html}
 
 </body>
 </html>

@@ -4,4 +4,12 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+  	<servlet-name>CalendarServlet</servlet-name>
+  	<servlet-class>com.calendar.controllers.CalendarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CalendarServlet</servlet-name>
+  	<url-pattern>/calendar</url-pattern>
+  </servlet-mapping>
 </web-app>
