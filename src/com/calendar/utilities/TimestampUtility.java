@@ -4,6 +4,9 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/*
+      Helpful Utility class.
+*/
 public class TimestampUtility {
 	public static Timestamp generateTimestamp(int month, int day, int year, int hour, int seconds)
 	{
